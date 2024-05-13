@@ -12,20 +12,22 @@ public class Titulo implements Comparable<Titulo>{
     private double sumaDeLasEvaluaciones;
     private int totalDeLasEvaluaciones;
 
-    public Titulo(String nombre, int fechaDeLanzamiento) {
+    public Titulo(String nombre, int fechaDeLanzamiento ) {
         this.nombre = nombre;
         this.fechaDeLanzamiento = fechaDeLanzamiento;
+        this.duracionEnMinutos = duracionEnMinutos;
     }
 
     public Titulo(TituloOmdb miTituloOmdb) {
-        this.nombre = miTituloOmdb.Title();
-        this.fechaDeLanzamiento = Integer.valueOf(miTituloOmdb.Year());
-        if(miTituloOmdb.Runtime().contains("N/A")){
+        this.nombre = miTituloOmdb.title();
+        this.fechaDeLanzamiento = Integer.valueOf(miTituloOmdb.year());
+        if(miTituloOmdb.runtime().contains("N/A")){
             throw new ErrorEnConversionDeDuracionException("No pude convertir la duracion" +
                     "porque contiene un N/A");
         }
-        this.duracionEnMinutos = Integer.valueOf(miTituloOmdb.Runtime().substring(0,3).replace(" ",""));
+        this.duracionEnMinutos = Integer.valueOf(miTituloOmdb.runtime().substring(0,3).replace(" ",""));
     }
+
 
     public String getNombre() {
         return nombre;

@@ -16,14 +16,17 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.DoubleToIntFunction;
 
 public class PrincipalConBusqueda {
     public static void main(String[] args) throws IOException, InterruptedException {
+
         Scanner lectura = new Scanner(System.in);
         List<Titulo> titulos = new ArrayList<>();
 
-        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).setPrettyPrinting().create();
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .create();
 
         while(true) {
 
@@ -46,7 +49,6 @@ public class PrincipalConBusqueda {
 
                 String json = response.body();
                 System.out.println(json);
-
 
                 TituloOmdb miTituloOmdb = gson.fromJson(json, TituloOmdb.class);
                 System.out.println(miTituloOmdb);

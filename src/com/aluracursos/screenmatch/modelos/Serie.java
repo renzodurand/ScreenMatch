@@ -3,15 +3,18 @@ package com.aluracursos.screenmatch.modelos;
 import com.aluracursos.screenmatch.calculos.Clasificacion;
 
 public class Serie extends Titulo{
+
+    //Variables
     private int temporadas;
     private int episodiosPorTemporadas;
     private int minutosPorEpisodio;
 
+    //Constructor
     public Serie(String nombre, int fechaDeLanzamiento) {
         super(nombre, fechaDeLanzamiento);
     }
 
-
+    //Getters and Setters
     public int getDuracionEnMinutos(){
         return temporadas*episodiosPorTemporadas*minutosPorEpisodio;
     }
@@ -40,6 +43,7 @@ public class Serie extends Titulo{
         this.episodiosPorTemporadas = episodiosPorTemporadas;
     }
 
+    //Other Methods
     @Override
     public String toString() {
         return "Serie: " + this.getNombre() + "(" + this.getFechaDeLanzamiento() + ")";

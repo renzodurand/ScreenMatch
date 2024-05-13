@@ -4,13 +4,15 @@ import com.aluracursos.screenmatch.calculos.Clasificacion;
 
 public class Pelicula extends Titulo implements Clasificacion {
 
-   private String director;
+    //variables
+    private String director;
 
+    //Constructor
     public Pelicula(String nombre, int fechaDeLanzamiento) {
         super(nombre, fechaDeLanzamiento);
     }
 
-
+    //Getter and Setters
     public String getDirector() {
         return director;
     }
@@ -19,6 +21,7 @@ public class Pelicula extends Titulo implements Clasificacion {
         this.director = director;
     }
 
+    //Other Methods
     @Override
     public int getClasificacion() {
         return (int)(calculaMedia()/2);
@@ -26,6 +29,6 @@ public class Pelicula extends Titulo implements Clasificacion {
 
     @Override
     public String toString() {
-        return "Pelicula:" + this.getNombre() + "(" + getFechaDeLanzamiento() + ")";
+        return "Pelicula: " + this.getNombre() + "(" + getFechaDeLanzamiento() + ")";
     }
 }
